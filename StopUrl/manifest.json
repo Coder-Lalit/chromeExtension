@@ -1,0 +1,35 @@
+{
+  "name": "Close tab by URL",
+  "version": "1.0",
+  "description": "Close the tabs which you don't want to open",
+  "permissions" : [
+    "storage",
+    "tabs"
+  ],
+  "icons" : {
+    "16" : "block-16.png",
+    "32" : "block-32.png",
+    "48" : "block-48.png",
+    "128" : "block-128.png"
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+  "options_page": "options.html",
+  "browser_action": {
+      "default_title": "Close The URLs",
+      "default_icon": "block-16.png",
+      "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    { 
+    "matches": ["https://*/*"],
+    "js": ["content.js"],
+    "run_at": "document_start" }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "manifest_version": 2
+}
